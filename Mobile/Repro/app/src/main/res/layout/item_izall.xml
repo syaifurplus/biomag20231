@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.sinaseyfi.advancedcardview.AdvancedCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/advancedCardView"
+    android:layout_width="128dp"
+    android:layout_height="128dp"
+    android:layout_gravity="center"
+    app:background_ColorType="solid"
+    app:background_Color="#000"
+    app:shadow1_Outer_Color="#7678ed"
+    app:shadow1_Outer_Distance="3dp"
+    app:shadow1_Outer_Blur="3dp">
+
+</com.sinaseyfi.advancedcardview.AdvancedCardView>
