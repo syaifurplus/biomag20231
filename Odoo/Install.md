@@ -9,4 +9,5 @@ Cara install modul pada odoo docker
 
 Cara tersebut juga diterapkan pada server.
 
-note: untuk install odoo docker pada local komputer, kami dibantu oleh Bu Anisa 
+note: untuk install odoo docker pada local komputer atau server, kami dibantu oleh Bu Anisa 
+- install docker dan odoo server = https://kaqfa.notion.site/Tutorial-Odoo-Docker-1d7214a893d2492da60b18a1b1c8b04f?pvs=4
