@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ url_for('static',filename='backend/img/repro.png') }}"> 
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='backend/img/repro.png') }}">
+  <title>
+    {{title}}
+  </title>
+  <link href="{{ url_for('static',filename='backend/css/nucleo-icons.css') }}" rel="stylesheet" /> 
+  <link href="{{ url_for('static',filename='backend/css/nucleo-svg.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static',filename='backend/css/nucleo-svg.css') }}" rel="stylesheet" />
+  <link id="pagestyle" href="{{ url_for('static',filename='backend/css/argon-dashboard.css?v=2.0.4') }}" rel="stylesheet" />
+
+</head>
+
+<body style="padding: 10px !important;">
+    <center><strong>LAPORAN SAMPAH</strong></center>
+    <br/><br/>
+    <table id="tbl_exporttable_to_xls" style="width: 100%;">
+      <thead>
+        <tr style="background-color: #000; color: #fff;">
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="border: 1px solid #000; text-align: left; width: 150px;">Tanggal</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="border: 1px solid #000; text-align: left; width: 200px;">Nama Sampah</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="border: 1px solid #000; text-align: left; width: 150px;">Jenis Sampah</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="border: 1px solid #000; text-align: right; width: 70px;">Berat</th>
+          <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2" style="border: 1px solid #000; text-align: left; width: 50px;">Unit</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for line in datalap2 %}
+          {% if line['nama'] == '' and line['jenis'] != 'Total ALL' %}
+            <tr style="background-color: #ccc;">
+              <td style="text-align: left; border: 1px solid #ccc;">
+                <span class="text-sm font-weight-bold">{{line['tanggal']}}</span>
+              </td>
+              <td style="border: 1px solid #ccc;">
+                <span class="text-xs font-weight-bold">{{line['nama']}}</span>
+              </td>
+              <td style="text-align: right; border: 1px solid #ccc;">
+                <strong class="text-xs font-weight-bold" style="text-align: right;">{{line['jenis']}}</strong>
+              </td>
+              <td style="text-align: right; border: 1px solid #ccc;">
+                <strong class="text-xs font-weight-bold ps-2">{{line['berat']}}</strong>
+              </td>
+              <td style="text-align: left; border: 1px solid #ccc;">
+                <strong class="text-xs font-weight-bold ps-2">{{line['satuan']}}</strong>
+              </td>
+            </tr>
+          {% elif line['nama'] == '' and line['jenis'] == 'Total ALL' %}
+            <tr style="background-color: #000; color: #fff;">
+              <td style="text-align: left; padding-left: 50px !important;">
+                <span class="text-sm font-weight-bold">{{line['tanggal']}}</span>
+              </td>
+              <td>
+                <span class="text-xs font-weight-bold">{{line['nama']}}</span>
+              </td>
+              <td style="text-align: right;">
+                <span class="text-xs font-weight-bold" style="font-size: 20px !important; text-align: right;">{{line['jenis']}}</span>
+              </td>
+              <td style="text-align: right;">
+                <span class="text-xs font-weight-bold ps-2" style="font-size: 20px !important;">{{line['berat']}}</span>
+              </td>
+              <td style="text-align: left;">
+                <span class="text-xs font-weight-bold ps-2" style="font-size: 20px !important;">{{line['satuan']}}</span>
+              </td>
+            </tr>
+          {% else %} 
+            <tr>
+              <td style="text-align: left;">
+                <span class="text-sm font-weight-bold">{{line['tanggal']}}</span>
+              </td>
+              <td>
+                <span class="text-xs font-weight-bold">{{line['nama']}}</span>
+              </td>
+              <td>
+                <span class="text-xs font-weight-bold">{{line['jenis']}}</span>
+              </td>
+              <td style="text-align: right;">
+                <span class="text-xs font-weight-bold ps-2" >{{line['berat']}}</span>
+              </td>
+              <td style="text-align: left;">
+                <span class="text-xs font-weight-bold ps-2" >{{line['satuan']}}</span>
+              </td>
+            </tr>
+          {% endif %} 
+        {% endfor %} 
+      </tbody>
+    </table>
+
+  <script src="{{ url_for('static',filename='backend/js/core/popper.min.js') }}"></script> 
+  <script src="{{ url_for('static',filename='backend/js/core/bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='backend/js/plugins/perfect-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='backend/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <script src="{{ url_for('static',filename='backend/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
+
+</body>
+
+</html>
